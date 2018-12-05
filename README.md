@@ -1,7 +1,7 @@
 # How to bring the item into view when adding at runtime in the listview
 This example demonstrates to bring the item into view when adding at runtime in the listview by using the [ScrollToRowIndex](https://help.syncfusion.com/cr/cref_files/xamarin/Syncfusion.SfListView.XForms~Syncfusion.ListView.XForms.LayoutBase~ScrollToRowIndex.html) method.
 
-See [How to bring the item into view when adding at runtime in the ListView]() for more details.
+See [How to bring the item into view when adding at runtime in the ListView](https://www.syncfusion.com/kb/9957/how-to-bring-the-item-into-view-when-adding-at-runtime-in-the-listview) for more details.
 ## <a name="requirements-to-run-the-demo"></a>Requirements to run the demo ##
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/).
