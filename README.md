@@ -1,4 +1,4 @@
-# How-to-bring-the-item-into-view-when-adding-at-runtime-in-the-listview
+# How to bring the item into view when adding at runtime in the listview
 This example demonstrates to bring the item into view when adding at runtime in the listview by using the ScrollToRowIndex method.
 
 See [How to bring the item into view when adding at runtime in the ListView]() for more details.
