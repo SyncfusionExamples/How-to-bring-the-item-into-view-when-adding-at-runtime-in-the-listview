@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SfListViewSample"
+             x:Class="SfListViewSample.MainPage"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms">
+
+    <syncfusion:SfListView x:Name="listView"
+                               ItemSize="70" ItemsSource="{Binding ContactsInfo}"
+                               IsStickyFooter="True"
+                               SelectionBackgroundColor="#ECECEC">
+        <syncfusion:SfListView.Behaviors>
+            <local:Behavior/>
+        </syncfusion:SfListView.Behaviors>
+        <syncfusion:SfListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.View>
+                        <Grid x:Name="grid" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="1" />
+                            </Grid.RowDefinitions>
+                            <Grid RowSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="{Binding ContactImage}"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Center"
+                                           HeightRequest="50" WidthRequest="50"/>
+
+                                <Grid Grid.Column="1"
+                                          RowSpacing="1"
+                                          Padding="10,0,0,0"
+                                          VerticalOptions="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label LineBreakMode="NoWrap"
+                                               TextColor="#474747"
+                                               Text="{Binding ContactName}"/>
+                                    <Label Grid.Row="1"
+                                               Grid.Column="0"
+                                               TextColor="#474747"
+                                               LineBreakMode="NoWrap"
+                                               Text="{Binding ContactNumber}"/>
+                                </Grid>
+                                <Grid Grid.Row="0"
+                                          Grid.Column="2"
+                                          RowSpacing="0"
+                                          HorizontalOptions="End"
+                                          VerticalOptions="Start">
+                                    <Grid.Padding>
+                                        <OnPlatform x:TypeArguments="Thickness">
+                                            <On  Platform="iOS">
+                                                <OnIdiom x:TypeArguments="Thickness" Phone="0,10,10,0" Tablet="0,10,10,0"  />
+                                            </On>
+                                            <On  Platform="Android,UWP">
+                                                <OnIdiom x:TypeArguments="Thickness" Phone="0,10,10,0" Tablet="0,10,10,0" Desktop="0,10,10,0" />
+                                            </On>
+                                            <On  Platform="macOS" Value="0,10,15,0"/>
+                                        </OnPlatform>
+                                    </Grid.Padding>
+                                    <Label LineBreakMode="NoWrap"
+                                               TextColor="#474747"
+                                               FontSize="12"
+                                               Text="{Binding ContactType}"/>
+                                </Grid>
+                            </Grid>
+                            <StackLayout Grid.Row="1" BackgroundColor="#E4E4E4" HeightRequest="1"/>
+                        </Grid>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+        </syncfusion:SfListView.ItemTemplate>
+        <syncfusion:SfListView.FooterTemplate>
+            <DataTemplate>
+                <Button x:Name="addItem" Text="Add Item" Command="{Binding BindingContext.AddCommand,Source={x:Reference Name=listView}}" CommandParameter="{Binding Source={x:Reference Name=listView}}"/>
+            </DataTemplate>
+        </syncfusion:SfListView.FooterTemplate>
+    </syncfusion:SfListView>
+</ContentPage>
